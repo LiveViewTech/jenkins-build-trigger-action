@@ -1,0 +1,19 @@
+name: Jenkins Build Trigger
+description: Trigger a build on a remote Jenkins server
+runs:
+  using: node12
+  main: dist/index.js
+inputs:
+  jenkinsUrl:
+    description: URL of the Jenkins server with your job
+    required: true
+  job:
+    description: Job you want to trigger
+    required: true
+  parameters:
+    description: Job parameters (need to be defined as multi-line strings)
+    required: false
+  waitForCompletion:
+    description: If true the action will wait for the job to complete
+    required: false
+    default: "false"
